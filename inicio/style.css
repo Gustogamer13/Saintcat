@@ -1,0 +1,468 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+box-sizing: border-box;
+font-family: 'Arial', sans-serif;
+box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    height: 100%; /* Garante que o corpo ocupe toda a altura da janela */
+    overflow-x: hidden; /* Permite rolagem vertical, mas evita horizontal */
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #777777;
+    color: #333;
+    font-size: 16px;
+    scrollbar-width: thin; /* Define a largura como fina */
+    scrollbar-color: #888 #393939; /* Cor do polegar e do trilho */
+}
+
+/* Estiliza a barra de rolagem */
+::-webkit-scrollbar {
+    width: 1px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+    background: #494949; /* Cor do fundo da barra */
+    border-radius: 1px; /* Bordas arredondadas */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Cor do "polegar" (parte que desliza) */
+    border-radius: 1px; /* Bordas arredondadas */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00aeff; /* Cor do "polegar" ao passar o mouse */
+}
+
+section {
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    position: relative;
+}
+
+section div.background-section {
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da janela */
+    position: relative;
+    z-index: 0;
+    overflow: hidden; /* Garante que o vídeo não ultrapasse os limites */
+}
+
+section div.background-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo preencha o espaço sem distorção */
+    object-position: center; /* Centraliza o vídeo */
+    position: absolute; /* Garante que o vídeo fique posicionado corretamente */
+    top: 0;
+    left: 0;
+}
+
+section div.box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+section div.box div.conteudo {
+    position: absolute;
+    top: 130px; /* Ajuste a distância do topo */
+    left: 450px; /* Ajuste a distância da esquerda */
+}
+
+section div.box img {
+    width: 300px; /* Tamanho fixo para o logotipo */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza a animação */
+}
+
+section div.box img:hover {
+    transform: scale(0.9); /* Encolhe o logotipo para 90% do tamanho original */
+    opacity: 0.8; /* Reduz a opacidade para criar um efeito visual */
+}
+
+@media screen and (max-width: 1024px) {
+    section div.box div.conteudo {
+        top: 100px; /* Ajuste a distância do topo para telas menores */
+        left: 20px; /* Ajuste a distância da esquerda para telas menores */
+    }
+
+    section div.box img {
+        width: 200px; /* Tamanho fixo para o logotipo em telas menores */
+        height: auto; /* Mantém a proporção da imagem */
+    }
+}
+
+@media screen and (max-width: 767px) {
+    section div.background-section video {
+        content: url('background-mobile.webm'); /* Substitui o vídeo para dispositivos móveis */
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o contêiner ocupe toda a altura da janela */
+}
+
+main {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+    padding: 1rem; /* Adiciona espaçamento interno */
+    background-color: #A9A9A9;
+}
+
+main .content {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #A9A9A9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-bar {
+    width: 100%;
+    background-color: #333; /* Cor de fundo da barra */
+    color: #fff; /* Cor do texto */
+    display: flex;
+    justify-content: space-between; /* Espaça a logo e os itens do menu */
+    align-items: center;
+    padding: 0.5rem 1rem; /* Ajuste o espaçamento interno */
+    position: relative;
+    z-index: 2; /* Certifique-se de que a barra fique acima do vídeo */
+}
+
+.menu-bar .menu-logo {
+    width: 150px; /* Ajuste o tamanho da logo */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza a animação */
+}
+
+.menu-bar .menu-logo:hover {
+    transform: scale(0.9); /* Encolhe a logo ao passar o mouse */
+    opacity: 0.8; /* Reduz a opacidade para criar um efeito visual */
+}
+
+.menu-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Espaçamento entre os itens */
+    margin: 0;
+    padding: 0;
+}
+
+.menu-bar ul li {
+    display: inline;
+}
+
+.menu-bar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.menu-bar ul li a:hover {
+    color: #00aeff; /* Cor ao passar o mouse */
+}
+
+footer {
+    background-color: #333; /* Cor de fundo do rodapé */
+    color: #fff; /* Cor do texto */
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 2; /* Certifique-se de que o rodapé fique acima do vídeo */
+}
+
+.book-gallery {
+    display: flex; /* Usa flexbox para alinhar os itens lado a lado */
+    gap: 2rem; /* Espaçamento entre os livros */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+    margin: 2rem 0; /* Espaçamento acima e abaixo da galeria */
+}
+
+.book-item {
+    display: flex;
+    flex-direction: column; /* Organiza a imagem e a descrição em coluna */
+    align-items: center; /* Centraliza os itens no eixo horizontal */
+    width: 200px; /* Define uma largura fixa para cada item */
+    text-align: center; /* Centraliza o texto */
+}
+
+.book-cover {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+    margin-bottom: 1rem; /* Espaçamento entre a imagem e a descrição */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a animação */
+}
+
+.book-cover:hover {
+    transform: scale(1.05); /* Aumenta levemente a imagem ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Intensifica a sombra ao passar o mouse */
+}
+
+.book-description h1 {
+    font-size: 1.2rem; /* Tamanho do título */
+    margin: 0.5rem 0; /* Espaçamento acima e abaixo do título */
+}
+
+.book-description p {
+    font-size: 1rem; /* Tamanho do texto da descrição */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo da descrição */
+}
+
+.book-description a {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: #00aeff; /* Cor do link */
+    font-weight: bold; /* Deixa o texto em negrito */
+    transition: color 0.3s ease; /* Suaviza a mudança de cor */
+}
+
+.book-description a:hover {
+    color: #005f99; /* Cor ao passar o mouse */
+}
+
+.redirect-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #808080;
+    min-height: calc(100vh - 100px); /* Garante que ocupe a altura da tela menos o menu e o rodapé */
+}
+
+.book-info {
+    display: flex;
+    gap: 2rem; /* Espaçamento entre a imagem e os links */
+    align-items: flex-start;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover {
+    width: 200px; /* Tamanho da imagem */
+    height: auto; /* Mantém a proporção */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.book-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.book-links h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.book-links p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.book-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.book-links ul li {
+    margin-bottom: 0.5rem;
+}
+
+.book-links ul li a {
+    text-decoration: none;
+    color: #00aeff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.book-links ul li a:hover {
+    color: #005f99;
+}
+
+.alert {
+    background-color: #ffcc00; /* Cor de fundo do aviso */
+    color: #333; /* Cor do texto */
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.meta-bar {
+    background-color: #f4f4f4; /* Cor de fundo da barra de meta */
+    color: #555; /* Cor do texto */
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.link-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Espaçamento entre os links */
+}
+
+.link-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 200px; /* Largura fixa para os itens */
+}
+
+.link-item:hover {
+    transform: scale(1.05); /* Aumenta levemente o item ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.link-item img {
+    width: 100px; /* Tamanho das logos */
+    height: auto; /* Mantém a proporção */
+    margin-bottom: 0.5rem;
+}
+
+.link-item p {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+}
+
+.link-item a {
+    text-decoration: none;
+    color: inherit; /* Mantém a cor do texto */
+}
+
+.progress-bar-container {
+    margin: 1rem auto;
+    text-align: center;
+    width: 80%; /* Ajuste a largura da barra */
+    max-width: 400px; /* Limita a largura máxima */
+}
+
+.progress-bar {
+    background-color: #f4f4f4; /* Cor de fundo da barra */
+    border-radius: 8px;
+    overflow: hidden;
+    height: 20px; /* Altura da barra */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    background-color: #00aeff; /* Cor da parte preenchida */
+    height: 100%; /* Preenche toda a altura */
+    transition: width 0.3s ease; /* Suaviza a mudança de largura */
+}
+
+.back-button {
+    text-align: center;
+    margin: 2rem 0; /* Espaçamento acima e abaixo */
+}
+
+.back-button button {
+    background-color: #00aeff; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button button:hover {
+    background-color: #005f99; /* Cor ao passar o mouse */
+}
+
+/* Aba de Contato */
+.contact-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none; /* Inicialmente escondido */
+}
+
+.contact-popup.visible {
+    display: block; /* Exibe o pop-up quando visível */
+}
+
+.contact-content h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.contact-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.contact-content ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.contact-content ul li a {
+    color: #00aeff;
+    text-decoration: none;
+}
+
+.contact-content ul li a:hover {
+    text-decoration: underline;
+}
+
+#close-contact {
+    background-color: #00aeff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+#close-contact:hover {
+    background-color: #005f99;
+}
+
+

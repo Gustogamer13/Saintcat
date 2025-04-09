@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint Cat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
+
+</head>
+<body>
+    
+<section>
+    <div class="background-section">
+        <video autoplay muted loop>
+            <source src="background-video.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+<nav class="menu-bar">
+    <a href="index.html"><img src="Logo do site com nome.png" alt="Logotipo" class="menu-logo"></a>
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        
+        <li><a href="livros.html">Livros</a></li>
+        <li><a href="#contact">Contato</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div class="content">
+        
+        <h1>Bem-vindo a Saint Cat. </h1>
+
+        <p>Saint Cat é uma editora e estúdio independente. Nosso propósito é criar mundos inesquecíveis — através de livros, histórias e jogos feitos com alma e criatividade Acreditamos que boas ideias ganham vida quando combinamos imaginação, emoção e arte.</p>
+        <br>
+        <p>Por enquanto, este site não venderá os livros. Futuramente as compras serão realizadas aqui.</p>
+
+
+        <br>
+        Aqui você será redirecionado para os sites onde você pode comprar os produtos que você deseja.
+        
+        Por favor, leia com atenção as instruções de cada site, pois eles podem variar de acordo com o produto que você deseja comprar.
+        </p>
+    </div>
+
+    <!-- Aba de Contato -->
+    <div id="contact-popup" class="contact-popup hidden">
+        <div class="contact-content">
+            <h2>Contato</h2>
+            <ul>
+                <li><strong>Instagram:</strong> <a href="https://www.instagram.com/gustavovsa/" target="_blank">@gustavovsa</a></li>
+                <li><strong>Email:</strong> <a href="mailto:gusttavovsa@gmail.com" target="_blank">gusttavovsa@gmail.com</a></li> 
+                <li><strong>WhatsApp:</strong> <a href="https://wa.me/5595991529698" target="_blank">(95) 99152-9698</a></li>
+            </ul>
+            <button id="close-contact">Fechar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Saint Cat © 2025 . Todos os direitos reservados.</p>
+        
+    </footer>
+</main>
+
+<script>
+    const video = document.querySelector('video');
+    const mobileVideo = 'Joia_do_Éden_(Mobile).mp4';
+    const desktopVideo = 'background.webm';
+
+    function updateVideo() {
+        if (window.innerWidth <= 767) {
+            video.src = mobileVideo;
+        } else {
+            video.src = desktopVideo;
+        }
+    }
+
+    // Atualiza o vídeo ao carregar a página e ao redimensionar a janela
+    window.addEventListener('load', updateVideo);
+    window.addEventListener('resize', updateVideo);
+</script>
+<script src="codigo.js"></script>
+
+</body>
+</html>

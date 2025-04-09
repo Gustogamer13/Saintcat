@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Storm Fall</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <nav class="menu-bar">
+            <a href="index.html"><img src="Logo do site com nome.png" alt="Logotipo" class="menu-logo"></a>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                
+                <li><a href="livros.html">Livros</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <main>
+            <!-- Aviso -->
+            <div class="alert">
+                <p>Atenção: Este produto está disponível para a compra de dois modos. Se você optar pela Loja Integrada, tenha ciência de que estará fazendo uma PRÉ-COMPRA. Somente após um total de 24 compras que a produção será iniciada e então o envio. Essa é uma opção caso queira pagar mais barato e me ajudar, porém irá demorar mais até que você receba o livro. Caso queira um envio mais rápido, pode optar pela Amazon, entretanto o preço será maior para que eu tenha algum retorno. Caso nenhuma dessas opções lhe agrade, há também o E-Book pela Amazon e pela HotMart.</p>
+            </div>
+
+            
+
+            <!-- Barra de progresso -->
+            <div class="progress-bar-container">
+                <p>Total de Compras 0/24</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0%;"></div> <!-- Ajuste a largura conforme necessário -->
+                </div>
+            </div>  
+
+            <!-- Links para os sites -->
+            <div class="link-section">
+                <div class="link-item">
+                    <a href="https://www.amazon.com.br/dp/B0C5X3K7Z4" target="_blank">
+                       
+                        <p>Comprar na Amazon</p>
+                    </a>
+                </div>
+                <div class="link-item">
+                    <a href="https://www.outrosite.com.br" target="_blank">
+                        
+                        <p>Comprar na Loja Integrada</p>
+                    </a>
+                </div>
+            </div>
+            <!-- Botão de voltar -->
+            <div class="back-button">
+                <button onclick="history.back()">Voltar</button>
+            </div>
+        </main>
+
+        <!-- Aba de Contato -->
+    <div id="contact-popup" class="contact-popup hidden">
+        <div class="contact-content">
+            <h2>Contato</h2>
+            <ul>
+                <li><strong>Instagram:</strong> <a href="https://www.instagram.com/gustavovsa/" target="_blank">@gustavovsa</a></li>
+                <li><strong>Email:</strong> <a href="mailto:gusttavovsa@gmail.com" target="_blank">gusttavovsa@gmail.com</a></li> 
+                <li><strong>WhatsApp:</strong> <a href="https://wa.me/5595991529698" target="_blank">(95) 99152-9698</a></li>
+            </ul>
+            <button id="close-contact">Fechar</button>
+        </div>
+    </div>
+        <footer>
+            <p>Saint Cat © 2025 . Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    <script src="codigo.js"></script>    
+</body>
+</html>
