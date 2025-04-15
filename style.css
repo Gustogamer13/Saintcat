@@ -111,6 +111,29 @@ section div.box img:hover {
     section div.background-section video {
         content: url('background-mobile.webm'); /* Substitui o vídeo para dispositivos móveis */
     }
+
+    .book-info {
+        flex-direction: column; /* Alinha os itens verticalmente */
+        gap: 1rem; /* Reduz o espaçamento entre os itens */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    .book-cover {
+        width: 150px; /* Reduz o tamanho da imagem */
+        
+    }
+
+    .book-links {
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .book-links h1 {
+        font-size: 1.2rem; /* Ajusta o tamanho do título */
+    }
+
+    .book-links p {
+        font-size: 0.9rem; /* Ajusta o tamanho do texto */
+    }
 }
 
 .container {
@@ -239,23 +262,16 @@ footer {
     color: #005f99; /* Cor ao passar o mouse */
 }
 
-.redirect-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background-color: #808080;
-    min-height: calc(100vh - 100px); /* Garante que ocupe a altura da tela menos o menu e o rodapé */
-}
-
 .book-info {
     display: flex;
-    gap: 2rem; /* Espaçamento entre a imagem e os links */
-    align-items: flex-start;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    gap: 1rem; /* Espaçamento entre a imagem e os links */
     background: #fff;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centraliza o texto */
 }
 
 .book-cover {
@@ -263,6 +279,16 @@ footer {
     height: auto; /* Mantém a proporção */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Garante que a imagem fique centralizada */
+}
+
+.redirect-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #808080;
+    min-height: calc(100vh - 100px); /* Garante que ocupe a altura da tela menos o menu e o rodapé */
 }
 
 .book-links {
