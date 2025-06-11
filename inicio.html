@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saint Cat</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="imagens/favicon-16x16.png" type="image/x-icon">
 
 </head>
 <body>
+
+    
     
 <section>
     <div class="background-section">
@@ -18,15 +20,12 @@
     </div>
 </section>
 
-<nav class="menu-bar">
-    <a href="index.html"><img src="Logo do site com nome.png" alt="Logotipo" class="menu-logo"></a>
-    <ul>
-        <li><a href="index.html">Início</a></li>
-        
-        <li><a href="livros.html">Livros</a></li>
-        <li><a href="#contact">Contato</a></li>
-    </ul>
-</nav>
+<div id="header-placeholder"></div>
+<script>
+fetch('header.html')
+  .then(res => res.text())
+  .then(html => document.getElementById('header-placeholder').innerHTML = html);
+</script>
 
 <main>
     <div class="content">
@@ -45,28 +44,12 @@
         </p>
     </div>
 
-    <!-- Aba de Contato -->
-    <div id="contact-popup" class="contact-popup hidden">
-        <div class="contact-content">
-            <h2>Contato</h2>
-            <ul>
-                <li><strong>Instagram:</strong> <a href="https://www.instagram.com/gustavovsa/" target="_blank">@gustavovsa</a></li>
-                <li><strong>Email:</strong> <a href="mailto:gusttavovsa@gmail.com" target="_blank">gusttavovsa@gmail.com</a></li> 
-                <li><strong>WhatsApp:</strong> <a href="https://wa.me/5595991637951" target="_blank">(95) 99163-7951</a></li>
-            </ul>
-            <button id="close-contact">Fechar</button>
-        </div>
-    </div>
-
     
 </main>
-<footer>
-        <p>Saint Cat © 2025 . Todos os direitos reservados.</p>
-    </footer>
 <script>
     const video = document.querySelector('video');
-    const mobileVideo = 'Joia_do_Éden_(Mobile).webm';
-    const desktopVideo = 'background.webm';
+    const mobileVideo = 'videos/Joia_do_Éden_(Mobile).webm';
+    const desktopVideo = 'videos/background.webm';
 
     function updateVideo() {
         if (window.innerWidth <= 767) {
@@ -82,5 +65,12 @@
 </script>
 <script src="codigo.js"></script>
 
+
+<div id="footer-placeholder"></div>
+<script>
+fetch('footer.html')
+  .then(res => res.text())
+  .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+</script>
 </body>
 </html>

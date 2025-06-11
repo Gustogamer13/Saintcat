@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saint Cat</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="imagens/favicon-16x16.png" type="image/x-icon">
 </head>
 <body>
-    <nav class="menu-bar">
-        <a href="index.html"><img src="Logo do site com nome.png" alt="Logotipo" class="menu-logo"></a>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            
-            <li><a href="livros.html">Livros</a></li>
-            <li><a href="#contact">Contato</a></li>
-        </ul>
-    </nav>
+    <div id="header-placeholder"></div>
+<script>
+fetch('header.html')
+  .then(res => res.text())
+  .then(html => document.getElementById('header-placeholder').innerHTML = html);
+</script>
     <div id="book-selection" class="book-selection">
             <img src="imagens/The Storm Fall.png" alt="Capa do Livro The Storm Fall" class="book-cover" data-index="0">
             <img src="imagens/The Mystic.png" alt="Capa do Livro The Mystic" class="book-cover" data-index="1">
@@ -30,12 +27,12 @@
             <div class="carousel-info">
                 <h1 id="carousel-title"></h1>
                 <p id="carousel-sinopse"></p>
-                <a id="carousel-link" href="#" target="_blank">Saiba mais</a>
-                <button id="carousel-close">Fechar</button>
             </div>
+            
         </div>
-        <button id="carousel-prev" class="carousel-nav">&#8592;</button>
-        <button id="carousel-next" class="carousel-nav">&#8594;</button>
+        <button id="carousel-prev" class="carousel-nav carousel-nav-bar left" aria-label="Anterior">❮</button>
+        <button id="carousel-next" class="carousel-nav carousel-nav-bar right" aria-label="Próximo">❯</button>
+        <button id="carousel-close" title="Fechar">×</button>
     </div>
 
     <!-- Aba de Contato -->
@@ -56,10 +53,45 @@
         <button onclick="history.back()">Voltar</button>
     </div>
 
-    <footer>
-        <p>Saint Cat © 2025 . Todos os direitos reservados.</p>
-        
-      </footer>
+    <div id="book-transition" class="book-transition hidden">
+        <h1 id="book-transition-title"></h1>
+    </div>
+
+    <div id="book-details-page" class="book-details-page hidden">
+    <button id="close-details-page" title="Fechar">×</button>
+    <div class="book-details-content">
+        <section class="details-apresentacao">
+            <h1 id="details-title"></h1>
+            <p id="details-sinopse"></p>
+        </section>
+        <section class="personagens-area">
+            <button class="personagem-nav" id="personagem-prev">&#8592;</button>
+            <div class="personagem-destaque" id="personagem-destaque">
+                <img id="personagem-img" src="" alt="">
+                <div class="personagem-info">
+                    <h2 id="personagem-nome"></h2>
+                    <p id="personagem-desc"></p>
+                </div>
+            </div>
+            <button class="personagem-nav" id="personagem-next">&#8594;</button>
+        </section>
+        <section class="details-curiosidades-section">
+            <h2>Curiosidades</h2>
+            <ul id="details-curiosidades"></ul>
+        </section>
+        <section class="details-links-section">
+            <h2>Onde Comprar & Amostra</h2>
+            <div id="details-links"></div>
+        </section>
+    </div>
+</div>
+
+    <div id="footer-placeholder"></div>
+<script>
+fetch('footer.html')
+  .then(res => res.text())
+  .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+</script>
       <script src="codigo.js"></script>
 </body>
 </html>

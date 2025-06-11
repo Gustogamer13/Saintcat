@@ -61,9 +61,12 @@
             </div>
         </main>
 
-        <footer>
-            <p>Saint Cat © 2025 . Todos os direitos reservados.</p>
-        </footer>
+        <div id="footer-placeholder"></div>
+<script>
+fetch('footer.html')
+  .then(res => res.text())
+  .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+</script>
     </div>
     <script src="codigo.js"></script>
 </body>
