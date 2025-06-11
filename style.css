@@ -1,3 +1,4 @@
+/* Reset e base */
 *,
 *::before,
 *::after {
@@ -7,68 +8,45 @@
 html, body {
     padding: 0;
     margin: 0;
-box-sizing: border-box;
-font-family: 'Arial', sans-serif;
-box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-    box-sizing: border-box;
     font-family: 'Arial', sans-serif;
     width: 100%;
-    height: 100%; /* Garante que o corpo ocupe toda a altura da janela */
-    overflow-x: hidden; /* Permite rolagem vertical, mas evita horizontal */
+    height: 100%;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }
 
 body {
-    background-color: #777777;
+    background-color: #777;
     color: #333;
     font-size: 16px;
-    scrollbar-width: thin; /* Define a largura como fina */
-    scrollbar-color: #888 #393939; /* Cor do polegar e do trilho */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #393939;
 }
 
-/* Estiliza a barra de rolagem */
-::-webkit-scrollbar {
-    width: 1px; /* Largura da barra de rolagem */
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 1px; }
+::-webkit-scrollbar-track { background: #494949; border-radius: 1px; }
+::-webkit-scrollbar-thumb { background: #888; border-radius: 1px; }
+::-webkit-scrollbar-thumb:hover { background: #00aeff; }
 
-::-webkit-scrollbar-track {
-    background: #494949; /* Cor do fundo da barra */
-    border-radius: 1px; /* Bordas arredondadas */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888; /* Cor do "polegar" (parte que desliza) */
-    border-radius: 1px; /* Bordas arredondadas */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #00aeff; /* Cor do "polegar" ao passar o mouse */
-}
-
-section {
+/* Estrutura principal */
+section, .container {
     width: 100%;
-    height: 100vh; /* Ocupa 100% da altura da tela */
+    min-height: 100vh;
     position: relative;
 }
 
-section div.background-section {
-    width: 100%;
-    height: 100vh; /* Ocupa 100% da altura da janela */
-    position: relative;
-    z-index: 0;
-    overflow: hidden; /* Garante que o vídeo não ultrapasse os limites */
-}
-
+section div.background-section,
 section div.background-section video {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que o vídeo preencha o espaço sem distorção */
-    object-position: center; /* Centraliza o vídeo */
-    position: absolute; /* Garante que o vídeo fique posicionado corretamente */
-    top: 0;
-    left: 0;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+    overflow: hidden;
 }
 
 section div.box {
@@ -80,404 +58,140 @@ section div.box {
 
 section div.box div.conteudo {
     position: absolute;
-    top: 130px; /* Ajuste a distância do topo */
-    left: 450px; /* Ajuste a distância da esquerda */
+    top: 130px;
+    left: 450px;
 }
 
-section div.box img {
-    width: 300px; /* Tamanho fixo para o logotipo */
-    height: auto; /* Mantém a proporção da imagem */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza a animação */
+section div.box img,
+.menu-bar .menu-logo {
+    width: 300px;
+    height: auto;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-section div.box img:hover {
-    transform: scale(0.9); /* Encolhe o logotipo para 90% do tamanho original */
-    opacity: 0.8; /* Reduz a opacidade para criar um efeito visual */
+section div.box img:hover,
+.menu-bar .menu-logo:hover {
+    transform: scale(0.9);
+    opacity: 0.8;
 }
 
-@media screen and (max-width: 1024px) {
-    section div.box div.conteudo {
-        top: 100px; /* Ajuste a distância do topo para telas menores */
-        left: 20px; /* Ajuste a distância da esquerda para telas menores */
-    }
-
-    section div.box img {
-        width: 200px; /* Tamanho fixo para o logotipo em telas menores */
-        height: auto; /* Mantém a proporção da imagem */
-    }
-}
-
-@media screen and (max-width: 767px) {
-    section div.background-section video {
-        content: url('background-mobile.webm'); /* Substitui o vídeo para dispositivos móveis */
-    }
-
-    .book-info {
-        flex-direction: column; /* Alinha os itens verticalmente */
-        gap: 1rem; /* Reduz o espaçamento entre os itens */
-        align-items: center; /* Centraliza os itens */
-    }
-
-    .book-cover {
-        width: 150px; /* Reduz o tamanho da imagem */
-        
-    }
-
-    .book-links {
-        text-align: center; /* Centraliza o texto */
-    }
-
-    .book-links h1 {
-        font-size: 1.2rem; /* Ajusta o tamanho do título */
-    }
-
-    .book-links p {
-        font-size: 0.9rem; /* Ajusta o tamanho do texto */
-    }
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Garante que o contêiner ocupe toda a altura da janela */
-}
-
-main {
-    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
-    padding: 1rem; /* Adiciona espaçamento interno */
-    background-color: #A9A9A9;
-}
-
-main .content {
-    margin: 2rem 0;
-    padding: 1rem;
-    background: #A9A9A9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
+/* Menu */
 .menu-bar {
     width: 100%;
-    background-color: #333; /* Cor de fundo da barra */
-    color: #fff; /* Cor do texto */
+    background: #333;
+    color: #fff;
     display: flex;
-    justify-content: space-between; /* Espaça a logo e os itens do menu */
+    justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem; /* Ajuste o espaçamento interno */
+    padding: 0.5rem 1rem;
     position: relative;
-    z-index: 2; /* Certifique-se de que a barra fique acima do vídeo */
-}
-
-.menu-bar .menu-logo {
-    width: 150px; /* Ajuste o tamanho da logo */
-    height: auto; /* Mantém a proporção da imagem */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza a animação */
-}
-
-.menu-bar .menu-logo:hover {
-    transform: scale(0.9); /* Encolhe a logo ao passar o mouse */
-    opacity: 0.8; /* Reduz a opacidade para criar um efeito visual */
+    z-index: 2;
 }
 
 .menu-bar ul {
     list-style: none;
     display: flex;
-    gap: 2rem; /* Espaçamento entre os itens */
+    gap: 2rem;
     margin: 0;
     padding: 0;
 }
 
-.menu-bar ul li {
-    display: inline;
-}
-
+.menu-bar ul li { display: inline; }
 .menu-bar ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 1rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
+.menu-bar ul li a:hover { color: #00aeff; }
 
-.menu-bar ul li a:hover {
-    color: #00aeff; /* Cor ao passar o mouse */
-}
-
+/* Footer */
 footer {
-    background-color: #333; /* Cor de fundo do rodapé */
-    color: #fff; /* Cor do texto */
+    background: #333;
+    color: #fff;
     text-align: center;
     padding: 1rem 0;
     position: relative;
-    z-index: 2; /* Certifique-se de que o rodapé fique acima do vídeo */
+    z-index: 1;
+    margin-top: auto;
 }
 
-.book-gallery {
-    display: flex; /* Usa flexbox para alinhar os itens lado a lado */
-    gap: 2rem; /* Espaçamento entre os livros */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
-    margin: 2rem 0; /* Espaçamento acima e abaixo da galeria */
-}
 
-.book-item {
-    display: flex;
-    flex-direction: column; /* Organiza a imagem e a descrição em coluna */
-    align-items: center; /* Centraliza os itens no eixo horizontal */
-    width: 200px; /* Define uma largura fixa para cada item */
-    text-align: center; /* Centraliza o texto */
-}
-
-.book-cover {
-    width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
-    margin-bottom: 1rem; /* Espaçamento entre a imagem e a descrição */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a animação */
-}
-
-.book-cover:hover {
-    transform: scale(1.05); /* Aumenta levemente a imagem ao passar o mouse */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Intensifica a sombra ao passar o mouse */
-}
-
-.book-description h1 {
-    font-size: 1.2rem; /* Tamanho do título */
-    margin: 0.5rem 0; /* Espaçamento acima e abaixo do título */
-}
-
-.book-description p {
-    font-size: 1rem; /* Tamanho do texto da descrição */
-    margin-bottom: 0.5rem; /* Espaçamento abaixo da descrição */
-}
-
-.book-description a {
-    text-decoration: none; /* Remove o sublinhado do link */
-    color: #00aeff; /* Cor do link */
-    font-weight: bold; /* Deixa o texto em negrito */
-    transition: color 0.3s ease; /* Suaviza a mudança de cor */
-}
-
-.book-description a:hover {
-    color: #005f99; /* Cor ao passar o mouse */
-}
-
-.book-info {
-    display: flex;
-    flex-direction: column; /* Alinha os itens verticalmente */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    gap: 1rem; /* Espaçamento entre a imagem e os links */
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Centraliza o texto */
-}
-
-.book-cover {
-    width: 200px; /* Tamanho da imagem */
-    height: auto; /* Mantém a proporção */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 auto; /* Garante que a imagem fique centralizada */
-}
-
-.redirect-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background-color: #808080;
-    min-height: calc(100vh - 100px); /* Garante que ocupe a altura da tela menos o menu e o rodapé */
-}
-
-.book-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.book-links h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.book-links p {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    color: #555;
-}
-
-.book-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.book-links ul li {
-    margin-bottom: 0.5rem;
-}
-
-.book-links ul li a {
-    text-decoration: none;
-    color: #00aeff;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.book-links ul li a:hover {
-    color: #005f99;
-}
-
+/* Alertas e barras */
 .alert {
-    background-color: #ffcc00; /* Cor de fundo do aviso */
-    color: #333; /* Cor do texto */
+    background: #ffcc00;
+    color: #333;
     padding: 1rem;
     text-align: center;
     font-weight: bold;
     border-radius: 8px;
     margin-bottom: 1rem;
 }
-
 .meta-bar {
-    background-color: #f4f4f4; /* Cor de fundo da barra de meta */
-    color: #555; /* Cor do texto */
+    background: #f4f4f4;
+    color: #555;
     padding: 0.5rem 1rem;
     text-align: center;
     font-size: 0.9rem;
     border-radius: 8px;
     margin-bottom: 2rem;
 }
-
-.link-section {
-    display: flex;
-    justify-content: center;
-    gap: 2rem; /* Espaçamento entre os links */
-}
-
-.link-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 200px; /* Largura fixa para os itens */
-}
-
-.link-item:hover {
-    transform: scale(1.05); /* Aumenta levemente o item ao passar o mouse */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-.link-item img {
-    width: 100px; /* Tamanho das logos */
-    height: auto; /* Mantém a proporção */
-    margin-bottom: 0.5rem;
-}
-
-.link-item p {
-    font-size: 1rem;
-    color: #333;
-    font-weight: bold;
-    margin: 0;
-}
-
-.link-item a {
-    text-decoration: none;
-    color: inherit; /* Mantém a cor do texto */
-}
-
 .progress-bar-container {
     margin: 1rem auto;
     text-align: center;
-    width: 80%; /* Ajuste a largura da barra */
-    max-width: 400px; /* Limita a largura máxima */
+    width: 80%;
+    max-width: 400px;
 }
-
 .progress-bar {
-    background-color: #f4f4f4; /* Cor de fundo da barra */
+    background: #f4f4f4;
     border-radius: 8px;
     overflow: hidden;
-    height: 20px; /* Altura da barra */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .progress {
-    background-color: #00aeff; /* Cor da parte preenchida */
-    height: 100%; /* Preenche toda a altura */
-    transition: width 0.3s ease; /* Suaviza a mudança de largura */
+    background: #00aeff;
+    height: 100%;
+    transition: width 0.3s;
 }
 
+/* Botão voltar */
 .back-button {
     text-align: center;
-    margin: 2rem 0; /* Espaçamento acima e abaixo */
+    margin: 2rem 0;
 }
-
 .back-button button {
-    background-color: #00aeff; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
+    background: #00aeff;
+    color: #fff;
     border: none;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s;
 }
-
-.back-button button:hover {
-    background-color: #005f99; /* Cor ao passar o mouse */
-}
+.back-button button:hover { background: #005f99; }
 
 /* Aba de Contato */
 .contact-popup {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background: #fff;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     z-index: 1000;
-    display: none; /* Inicialmente escondido */
+    display: none;
 }
-
-.contact-popup.visible {
-    display: block; /* Exibe o pop-up quando visível */
-}
-
-.contact-content h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.contact-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-}
-
-.contact-content ul li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-.contact-content ul li a {
-    color: #00aeff;
-    text-decoration: none;
-}
-
-.contact-content ul li a:hover {
-    text-decoration: underline;
-}
-
+.contact-popup.visible { display: block; }
+.contact-content h2 { margin-top: 0; font-size: 1.5rem; color: #333; }
+.contact-content ul { list-style: none; padding: 0; margin: 1rem 0; }
+.contact-content ul li { margin-bottom: 0.5rem; font-size: 1rem; }
+.contact-content ul li a { color: #00aeff; text-decoration: none; }
+.contact-content ul li a:hover { text-decoration: underline; }
 #close-contact {
-    background-color: #00aeff;
+    background: #00aeff;
     color: #fff;
     border: none;
     padding: 0.5rem 1rem;
@@ -486,9 +200,270 @@ footer {
     font-size: 1rem;
     margin-top: 1rem;
 }
+#close-contact:hover { background: #005f99; }
 
-#close-contact:hover {
-    background-color: #005f99;
+/* Carrossel - Slide e Layout */
+.carousel {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+#carousel-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.6) blur(1px);
+}
+
+.carousel-fade {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.4s;
+}
+.carousel-fade.active {
+    opacity: 1;
+}
+
+/* Degradê no fundo do carrossel */
+.carousel::before {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to top, #000d 40%, transparent 90%);
+}
+
+/* Área do slide */
+.carousel-slide-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    padding: 0 8vw 0 8vw;
+    box-sizing: border-box;
+    gap: 8vw; /* Aumente o gap para separar mais o texto do livro */
+}
+
+/* Livro grande à esquerda */
+.carousel-slide {
+    width: 320px;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px #00aeff88;
+    background: #fff;
+    margin-right: 0;              /* Remove margem antiga */
+    position: relative;
+    left: 0;
+    transition: 
+        transform 0.7s cubic-bezier(.4,2,.3,1),
+        opacity 0.7s cubic-bezier(.4,2,.3,1);
+    z-index: 4;
+}
+.carousel-slide.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+.carousel-slide.slide-in-right {
+    transform: translateX(100vw);
+    opacity: 0;
+}
+.carousel-slide.slide-in-left {
+    transform: translateX(-100vw);
+    opacity: 0;
+}
+.carousel-slide.slide-out-left {
+    transform: translateX(-100vw);
+    opacity: 0;
+}
+.carousel-slide.slide-out-right {
+    transform: translateX(100vw);
+    opacity: 0;
+}
+
+/* Texto à direita */
+.carousel-info {
+    color: #fff;
+    max-width: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 2.5rem 2rem 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 5;
+    text-shadow: 0 2px 16px #000a;
+    align-items: center;
+    justify-content: center;
+    /* Alinha o texto à direita da área do slide */
+    margin-left: auto;
+}
+.carousel-info h1 {
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: bold;
+}
+.carousel-info p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+.carousel-info a {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #00aeff;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.carousel-info a:hover {
+    background: #005f99;
+}
+#carousel-close {
+    margin-top: 2rem;
+    align-self: center;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    opacity: 0.9;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#carousel-close:hover {
+    background: #222;
+}
+
+/* Botões de navegação */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #00aeff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #000a;
+    opacity: 0.85;
+    z-index: 10;
+}
+#carousel-prev { left: 2vw; }
+#carousel-next { right: 2vw; }
+.carousel-nav:hover {
+    background: #005f99;
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .carousel-slide-area {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 2vw 2vh 2vw;
+    }
+    .carousel-slide {
+        width: 180px;
+        height: 260px;
+        margin-right: 0;
+        margin-bottom: 2vh;
+    }
+    .carousel-info {
+        max-width: 95vw;
+        padding: 1.2rem 1rem;
+    }
+}
+@media (max-width: 600px) {
+    .carousel-content {
+        width: 98vw;
+        padding: 0.5rem 0.2rem;
+    }
+    .carousel-info {
+        max-width: 95vw;
+    }
+    #carousel-prev, #carousel-next {
+        width: 36px;
+        height: 36px;
+        font-size: 1.3rem;
+    }
+    #carousel-close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 0.9rem;
+        padding: 0.3rem 0.7rem;
+    }
+    .book-selection {
+        gap: 0.5rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+    .book-selection .book-cover {
+        width: 80px;
+        border-radius: 8px;
+    }
+}
+.carousel.hidden {
+    display: none !important;
+}
+
+/* Seleção de Livros */
+.book-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0 2rem 0;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+.book-selection .book-cover {
+    width: 250px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 16px #0003;
+    transition: 
+        transform 0.25s cubic-bezier(.4,2,.3,1),
+        box-shadow 0.25s cubic-bezier(.4,2,.3,1),
+        filter 0.25s;
+    cursor: pointer;
+    background: #fff;
+    filter: grayscale(10%) brightness(0.95);
+}
+
+.book-selection .book-cover:hover {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 8px 32px #00aeff99, 0 0 0 4px #fff8;
+    filter: grayscale(0%) brightness(1.08) drop-shadow(0 0 12px #00aeff88);
+    z-index: 2;
+    outline: 2px solid #00aeff;
 }
 
 

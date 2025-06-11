@@ -17,23 +17,25 @@
             <li><a href="#contact">Contato</a></li>
         </ul>
     </nav>
-    <div class="book-gallery">
-        <div class="book-item">
-            <a href="tsf.html"><img src="imagens/The Storm Fall.png" alt="Capa do Livro The Storm Fall" class="book-cover"></a>
-            <div class="book-description">
-                <h1>The Storm Fall</h1>
-                <p>Uma jornada através do espaço-tempo.</p>
-                
+    <div id="book-selection" class="book-selection">
+            <img src="imagens/The Storm Fall.png" alt="Capa do Livro The Storm Fall" class="book-cover" data-index="0">
+            <img src="imagens/The Mystic.png" alt="Capa do Livro The Mystic" class="book-cover" data-index="1">
+    </div>
+
+    <div id="book-carousel" class="carousel hidden">
+        <video id="carousel-bg" autoplay loop muted></video>
+        <div id="carousel-fade" class="carousel-fade"></div>
+        <div class="carousel-slide-area">
+            <img id="carousel-book-cover" class="carousel-slide" src="" alt="Livro atual">
+            <div class="carousel-info">
+                <h1 id="carousel-title"></h1>
+                <p id="carousel-sinopse"></p>
+                <a id="carousel-link" href="#" target="_blank">Saiba mais</a>
+                <button id="carousel-close">Fechar</button>
             </div>
         </div>
-        <div class="book-item">
-            <img src="imagens/The Mystic.png" alt="Capa do Livro The Mystic" class="book-cover">
-            <div class="book-description">
-                <h1>The Mystic</h1>
-                <p>Em breve.</p>
-        
-            </div>
-        </div>
+        <button id="carousel-prev" class="carousel-nav">&#8592;</button>
+        <button id="carousel-next" class="carousel-nav">&#8594;</button>
     </div>
 
     <!-- Aba de Contato -->
