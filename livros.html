@@ -9,12 +9,14 @@
 </head>
 <body>
     <div id="header-placeholder"></div>
+    <div class="select-book"><h1>SELECIONE UM LIVRO</h1></div>
 <script>
 fetch('header.html')
   .then(res => res.text())
   .then(html => document.getElementById('header-placeholder').innerHTML = html);
 </script>
     <div id="book-selection" class="book-selection">
+        
             <img src="imagens/The Storm Fall.png" alt="Capa do Livro The Storm Fall" class="book-cover" data-index="0">
             <img src="imagens/The Mystic.png" alt="Capa do Livro The Mystic" class="book-cover" data-index="1">
     </div>
@@ -22,8 +24,12 @@ fetch('header.html')
     <div id="book-carousel" class="carousel hidden">
         <video id="carousel-bg" autoplay loop muted></video>
         <div id="carousel-fade" class="carousel-fade"></div>
+        
         <div class="carousel-slide-area">
-            <img id="carousel-book-cover" class="carousel-slide" src="" alt="Livro atual">
+            <div class="carousel-hint">
+            <span>Clique na capa do livro!</span>
+        </div>
+            <img id="carousel-book-cover" class="carousel-slide pulse" src="..." alt="Livro atual">
             <div class="carousel-info">
                 <h1 id="carousel-title"></h1>
                 <p id="carousel-sinopse"></p>
@@ -33,6 +39,7 @@ fetch('header.html')
         <button id="carousel-prev" class="carousel-nav carousel-nav-bar left" aria-label="Anterior">❮</button>
         <button id="carousel-next" class="carousel-nav carousel-nav-bar right" aria-label="Próximo">❯</button>
         <button id="carousel-close" title="Fechar">×</button>
+        
     </div>
 
     <!-- Aba de Contato -->
